@@ -17,6 +17,7 @@ func Connect() {
 	if err != nil {
 		panic(err)
 	}
-	db.AutoMigrate(&models.Prueba{})
+	// db.AutoMigrate(&models.Prueba{})
+	db.AutoMigrate(&models.Encuesta{})
 	DB = db
 }

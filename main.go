@@ -13,5 +13,6 @@ func main() {
 	router := gin.New()
 
 	routes.PruebaRoute(router)
+	routes.EncuestaRoute(router)
 	router.Run("localhost:8080")
 }
