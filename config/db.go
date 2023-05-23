@@ -19,5 +19,6 @@ func Connect() {
 	}
 	// db.AutoMigrate(&models.Prueba{})
 	db.AutoMigrate(&models.Encuesta{})
+	db.AutoMigrate(&models.NewEncuesta{})
 	DB = db
 }

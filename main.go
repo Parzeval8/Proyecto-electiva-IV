@@ -14,5 +14,6 @@ func main() {
 
 	routes.PruebaRoute(router)
 	routes.EncuestaRoute(router)
+	routes.NewEncuestaRoute(router)
 	router.Run("localhost:8080")
 }

@@ -4,7 +4,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Encuesta struct {
+type NewEncuesta struct {
 	gorm.Model
 	ID                       uint `gorm:"column:id;primaryKey;unique;autoIncrement:false"`
 	P1Carrera                int  `gorm:"column:1Carrera"`
