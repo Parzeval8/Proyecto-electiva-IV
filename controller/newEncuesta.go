@@ -24,8 +24,9 @@ func PostNewEncuesta(c *gin.Context) {
 	config.DB.Create(&encuesta)
 	//se responde al cliente la peticion ok y el dato tipo json
 	response := gin.H{
-		"Color":    "red",
-		"Position": []interface{}{&encuesta.P3Edad, &encuesta.P39HabiPrac, &encuesta.P1Carrera},
+		"Position":   []interface{}{&encuesta.P3Edad, &encuesta.P39HabiPrac, &encuesta.P1Carrera},
+		"Color":      "red",
+		"P33GraMoti": &encuesta.P33GraMoti,
 	}
 
 	c.IndentedJSON(http.StatusCreated, &response)
