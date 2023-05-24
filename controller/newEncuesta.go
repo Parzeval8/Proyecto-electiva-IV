@@ -21,7 +21,12 @@ func PostNewEncuesta(c *gin.Context) {
 	//asigna el valor recibido, y se crea en la tabla
 	c.BindJSON(&encuesta)
 	datamodel.Knn(&encuesta)
-	config.DB.Create(&encuesta)
+	if err := config.DB.Create(&encuesta).Error; err != nil {
+		// Error al crear la encuesta en la base de datos
+		c.Error(err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error al crear la encuesta"})
+		return
+	}
 	//se responde al cliente la peticion ok y el dato tipo json
 	response := gin.H{
 		"Position":   []interface{}{&encuesta.P3Edad, &encuesta.P39HabiPrac, &encuesta.P1Carrera},
